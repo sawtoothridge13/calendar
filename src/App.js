@@ -1,9 +1,10 @@
 import './App.css';
+import ChallengeCalendar from './components/ChallengeCalendar/ChallengeCalendar.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Challenge Calendar</header>
+      <ChallengeCalendar />
     </div>
   );
 }

@@ -1,13 +1,14 @@
 import 'react-calendar/dist/Calendar.css';
-import './MyCalendar.css';
+import './ChallengeCalendar.css';
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-import EventListComponent from '../EventList/EventListComponent';
+// import EventListComponent from '../EventList/EventListComponent';
 import FormComponent from '../FormComponent/FormComponent';
 import sportData from './sportData.json.json'; // Adjust the path to your actual file location
 
-const MyCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date(2024, 0, 1)); // Set initial date to January 1, 2024
+const ChallengeCalendar = () => {
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1)); // Set initial date to January 2024
+  const [selectedDate, setSelectedDate] = useState(new Date(2024, 0, 1)); // Set initial selected date
   const [events, setEvents] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
@@ -69,20 +70,38 @@ const MyCalendar = () => {
     (event) => event.date.toDateString() === selectedDate.toDateString(),
   );
 
+  const handleMonthChange = (direction) => {
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + direction,
+      1,
+    );
+    setCurrentDate(newDate);
+  };
+
+  const monthName = currentDate.toLocaleString('default', { month: 'long' });
+
   return (
     <div className="calendar-container">
-      <h1>My Calendar</h1>
+      <h1>Challenge Calendar</h1>
+      <div className="calendar-header">
+        <button onClick={() => handleMonthChange(-1)}>&lt; Previous</button>
+        <span className="month-name">
+          {monthName} {currentDate.getFullYear()}
+        </span>
+        <button onClick={() => handleMonthChange(1)}>Next &gt;</button>
+      </div>
       <Calendar
         className="react-calendar"
         onChange={handleDateChange}
         value={selectedDate}
-        minDate={new Date(2024, 0, 1)} // January 1, 2024
-        maxDate={new Date(2024, 0, 31)} // January 31, 2024
+        minDate={new Date(2024, 0, 1)} // Adjust if necessary
+        maxDate={new Date(2024, 11, 31)} // Adjust if necessary
+        activeStartDate={currentDate} // Use the currentDate for the active month
         tileContent={({ date }) =>
           isDateWithEvent(date) ? <span className="event-dot"></span> : null
         }
-        // Optional: Hide navigation buttons to prevent changing months
-        showNavigation={false}
+        showNavigation={false} // Disable default navigation
       />
       <div className="form-toggle">
         <button onClick={toggleForm}>
@@ -90,9 +109,9 @@ const MyCalendar = () => {
         </button>
       </div>
       {showForm && <FormComponent handleAddEvent={handleAddEvent} />}
-      <EventListComponent events={filteredEvents} />
+      {/* <EventListComponent events={filteredEvents} /> */}
     </div>
   );
 };
 
-export default MyCalendar;
+export default ChallengeCalendar;
