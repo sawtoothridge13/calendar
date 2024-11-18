@@ -1,6 +1,5 @@
 import './NavBar.css';
 import React from 'react';
-import { EventDetailsPage } from '../../pages/EventDetailsPage';
 
 const NavBar = () => {
   return (
