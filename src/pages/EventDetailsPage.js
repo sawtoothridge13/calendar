@@ -1,4 +1,3 @@
-import './EventDetailsPage.css';
 import React from 'react';
 
 export const EventDetailsPage = () => {

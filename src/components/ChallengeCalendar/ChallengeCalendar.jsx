@@ -2,7 +2,7 @@ import 'react-calendar/dist/Calendar.css';
 import './ChallengeCalendar.css';
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-// import EventListComponent from '../EventList/EventListComponent';
+import EventListComponent from '../EventList/EventListComponent';
 import FormComponent from '../FormComponent/FormComponent';
 import sportData from './sportData.json.json'; // Adjust the path to your actual file location
 
@@ -109,7 +109,7 @@ const ChallengeCalendar = () => {
         </button>
       </div>
       {showForm && <FormComponent handleAddEvent={handleAddEvent} />}
-      {/* <EventListComponent events={filteredEvents} /> */}
+      <EventListComponent events={filteredEvents} />
     </div>
   );
 };

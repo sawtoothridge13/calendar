@@ -1,11 +1,8 @@
-import './EventListComponent.css';
-import React from 'react';
-
 const EventListComponent = ({ events }) => {
   return (
     <div className="event-list">
       <h2>Events</h2>
-      {events.length > 0 ? (
+      {events && events.length > 0 ? (
         <ul>
           {events.map((event, index) => {
             const formattedDate = event.date.toLocaleDateString();
