@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Calendar App</header>
+      <header className="App-header">Challenge Calendar</header>
     </div>
   );
 }

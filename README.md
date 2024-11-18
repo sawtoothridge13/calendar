@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+Here’s the step-by-step to-do list formatted for inclusion in a `README.md` file for this React project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Sportradar Coding Academy - Frontend Coding Exercise
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+This project is a sports event calendar that allows users to view events, check event details, and add new events during runtime. It demonstrates understanding of basic frontend programming concepts, responsive design, and user interaction handling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+1. [Features](#features)
+2. [Getting Started](#getting-started)
+3. [Tasks Breakdown](#tasks-breakdown)
+4. [Additional Features](#additional-features)
+5. [Submission Guidelines](#submission-guidelines)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Calendar view for sports events
+- Event detail page with full event information
+- Add new events functionality
+- Responsive design for mobile, tablet, and desktop
+- Navigation between calendar and event creation views
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ensure the following are installed:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- npm (comes with Node.js) or Yarn
+- A code editor (e.g., [Visual Studio Code](https://code.visualstudio.com/))
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
 
-## Learn More
+    ```bash
+    git clone <repository-url>
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Navigate to the project directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    cd <project-folder>
+    ```
 
-### Code Splitting
+3. Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```bash
+    npm install
+    ```
 
-### Analyzing the Bundle Size
+    Or if using Yarn:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    yarn install
+    ```
 
-### Making a Progressive Web App
+### Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Start the development server:
 
-### Advanced Configuration
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    Or if using Yarn:
 
-### Deployment
+    ```bash
+    yarn start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. Open the app in your browser:
 
-### `npm run build` fails to minify
+    ```plaintext
+    http://localhost:3000
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Tasks Breakdown
+
+### Task 1: Calendar View
+
+**Objective:** Implement a calendar view that displays sports events.
+
+- Create a calendar interface for the current month.
+- Display the days of the month in a grid format.
+- Indicate days with scheduled sports events (e.g., with a marker or dot).
+- Optionally, show brief event information (e.g., event name on the day cell).
+
+**Sample Events to Include**:
+
+- Sat., 18.07.2019, 18:30, Football, Salzburg vs. Sturm
+- Sun., 23.10.2019, 09:45, Ice Hockey, KAC vs. Capitals
+
+### Task 2: Event Detail Page
+
+**Objective:** Provide a way to view the full details of a specific event.
+
+- When a user clicks on an event marker, navigate to a detail page.
+- Display relevant event details, including:
+  - Date and time
+  - Sport type
+  - Teams or participants
+  - Additional details if available
+
+### Task 3: Add Event Functionality
+
+**Objective:** Allow users to add new events during runtime.
+
+- Create a form for inputting event details:
+  - Date
+  - Time
+  - Sport
+  - Teams/participants
+- Dynamically add the new event to the calendar view (runtime only, no persistence).
+
+### Task 4: Responsiveness
+
+**Objective:** Ensure full responsiveness on mobile, tablet, and desktop.
+
+- Adapt layouts for smaller screens using responsive design techniques.
+- Test usability and touch interactions on various devices and screen sizes.
+
+### Task 5: Navigation
+
+**Objective:** Create a navigation system for the application.
+
+- Implement a navigation bar/menu to switch between:
+  - Calendar view
+  - "Add Event" page
+- Ensure navigation is accessible from all pages.
+
+---
+
+## Additional Features (Optional)
+
+- **Filters:** Allow users to filter events by criteria (e.g., sport, date range).
+- **Styling and Enhancements:** Add CSS styling, animations, or transitions.
+- **Persistent Storage:** Use local storage to retain events between sessions.
+- **Testing:** Write tests for components and functionality.
+
+---
+
+## Submission Guidelines
+
+- **Code Hosting:**
+  - Upload the code to a public GitHub repository.
+- **Documentation:**
+  - Include a README.md with:
+    - Overview of the project
+    - Instructions to run the application
+    - Any assumptions or decisions made
+- **Version Control:**
+  - Commit regularly with clear, descriptive messages.
+
+---
+
+## Assumptions
+
+1. Mock data will be provided as a `.json` file for initial setup.
+2. The application does not require backend or persistent storage.
+3. Time will be prioritized on completing core tasks over optional features.
+
+---
