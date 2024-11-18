@@ -1,5 +1,6 @@
 import './NavBar.css';
 import React from 'react';
+import { EventDetailsPage } from '../../pages/EventDetailsPage';
 
 const NavBar = () => {
   return (
@@ -12,10 +13,10 @@ const NavBar = () => {
       <div className="navbar-center">
         <ul className="nav-links">
           <li>
-            <a href="/products">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="/EventPage">Event Details</a>
+            <a href="/EventDetailsPage">Event Details</a>
           </li>
         </ul>
       </div>
