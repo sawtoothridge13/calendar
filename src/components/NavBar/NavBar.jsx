@@ -1,3 +1,4 @@
+import './NavBar.css';
 import React from 'react';
 
 const NavBar = () => {
@@ -5,7 +6,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="navbar-left">
         <a href="/" className="logo">
-          ShopNow
+          Challenge
         </a>
       </div>
       <div className="navbar-center">
