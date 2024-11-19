@@ -7,10 +7,9 @@ import FormComponent from '../FormComponent/FormComponent'; // Ensure correct pa
 import sportData from './sportData.json.json'; // Adjust the path to your actual file location
 
 const ChallengeCalendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1)); // Set initial date to January 2024
-  const [selectedDate, setSelectedDate] = useState(new Date(2024, 0, 1)); // Set initial selected date
-  const [events, setEvents] = useState([]);
-  const navigate = useNavigate(); // Use React Router navigation
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1));
+  const [events, setEvents] = useState([]); // Local events state
+  const navigate = useNavigate();
 
   useEffect(() => {
     transformData();
@@ -44,7 +43,7 @@ const ChallengeCalendar = () => {
     );
 
     navigate('/EventDetailsPage', {
-      state: { eventsForDate, events, setEvents },
+      state: { eventsForDate }, // Pass only the events for the selected date
     });
   };
 
@@ -54,7 +53,7 @@ const ChallengeCalendar = () => {
       title,
       description,
     };
-    setEvents([...events, newEvent]); // Update the global events state
+    setEvents([...events, newEvent]); // Update local events
   };
 
   const handleMonthChange = (direction) => {
@@ -87,14 +86,14 @@ const ChallengeCalendar = () => {
       <Calendar
         className="react-calendar"
         onClickDay={handleDateClick} // Handle day click to navigate
-        value={selectedDate}
-        activeStartDate={currentDate} // Use currentDate to control the active month
-        minDate={new Date(2024, 0, 1)} // January 1, 2024
-        maxDate={new Date(2024, 11, 31)} // December 31, 2024
+        value={currentDate}
+        activeStartDate={currentDate}
+        minDate={new Date(2024, 0, 1)}
+        maxDate={new Date(2024, 11, 31)}
         tileContent={({ date }) =>
           isDateWithEvent(date) ? <span className="event-dot"></span> : null
         }
-        showNavigation={false} // Disable default navigation
+        showNavigation={false}
       />
       <div className="form-container">
         <FormComponent handleAddEvent={handleAddEvent} />

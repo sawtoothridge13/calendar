@@ -64,13 +64,6 @@ const FormComponent = ({ handleAddEvent }) => {
           onChange={handleEventTitleChange}
         />
 
-        <label htmlFor="eventDescription">Event Description:</label>
-        <textarea
-          id="eventDescription"
-          value={eventDescription}
-          onChange={handleEventDescriptionChange}
-        ></textarea>
-
         <label htmlFor="eventDate">Event Date:</label>
         <input
           type="date"
@@ -86,6 +79,13 @@ const FormComponent = ({ handleAddEvent }) => {
           value={eventTime}
           onChange={handleEventTimeChange}
         />
+
+        <label htmlFor="eventDescription">Event Description:</label>
+        <textarea
+          id="eventDescription"
+          value={eventDescription}
+          onChange={handleEventDescriptionChange}
+        ></textarea>
 
         <button type="submit">Add Event</button>
       </form>
