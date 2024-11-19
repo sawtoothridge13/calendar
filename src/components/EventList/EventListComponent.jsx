@@ -1,3 +1,5 @@
+import './EventListComponent.css';
+
 const EventListComponent = ({ events }) => {
   return (
     <div className="event-list">

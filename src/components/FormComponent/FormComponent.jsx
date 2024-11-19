@@ -1,5 +1,5 @@
-import './FormComponent.css';
 import React, { useState } from 'react';
+import styles from './FormComponent.css';
 
 const FormComponent = ({ handleAddEvent }) => {
   const [eventTitle, setEventTitle] = useState('');
@@ -7,26 +7,6 @@ const FormComponent = ({ handleAddEvent }) => {
   const [eventDate, setEventDate] = useState(''); // New state for date input
   const [eventTime, setEventTime] = useState(''); // New state for time input
   const [error, setError] = useState('');
-
-  const handleEventTitleChange = (e) => {
-    setEventTitle(e.target.value);
-    setError('');
-  };
-
-  const handleEventDescriptionChange = (e) => {
-    setEventDescription(e.target.value);
-    setError('');
-  };
-
-  const handleEventDateChange = (e) => {
-    setEventDate(e.target.value);
-    setError('');
-  };
-
-  const handleEventTimeChange = (e) => {
-    setEventTime(e.target.value);
-    setError('');
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,22 +34,29 @@ const FormComponent = ({ handleAddEvent }) => {
   };
 
   return (
-    <div className="form-container">
+    <div className={styles['form-container']}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="eventTitle">Event Title:</label>
         <input
           type="text"
           id="eventTitle"
           value={eventTitle}
-          onChange={handleEventTitleChange}
+          onChange={(e) => setEventTitle(e.target.value)}
         />
+
+        <label htmlFor="eventDescription">Event Description:</label>
+        <textarea
+          id="eventDescription"
+          value={eventDescription}
+          onChange={(e) => setEventDescription(e.target.value)}
+        ></textarea>
 
         <label htmlFor="eventDate">Event Date:</label>
         <input
           type="date"
           id="eventDate"
           value={eventDate}
-          onChange={handleEventDateChange}
+          onChange={(e) => setEventDate(e.target.value)}
         />
 
         <label htmlFor="eventTime">Event Time:</label>
@@ -77,19 +64,12 @@ const FormComponent = ({ handleAddEvent }) => {
           type="time"
           id="eventTime"
           value={eventTime}
-          onChange={handleEventTimeChange}
+          onChange={(e) => setEventTime(e.target.value)}
         />
-
-        <label htmlFor="eventDescription">Event Description:</label>
-        <textarea
-          id="eventDescription"
-          value={eventDescription}
-          onChange={handleEventDescriptionChange}
-        ></textarea>
 
         <button type="submit">Add Event</button>
       </form>
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className={styles['error-message']}>{error}</p>}
     </div>
   );
 };

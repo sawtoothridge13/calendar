@@ -1,0 +1,47 @@
+.event-list {
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Match form background */
+  text-align: left; /* Align content to the left */
+}
+
+.event-list h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333; /* Match label styles in FormComponent */
+  margin-bottom: 15px;
+  text-align: center; /* Center the heading */
+}
+
+.event-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Add separators between events */
+}
+
+.event-list li:last-child {
+  border-bottom: none; /* Remove the bottom border for the last item */
+}
+
+.event-list li p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.event-list li p strong {
+  font-weight: bold;
+  color: #333; /* Emphasize labels */
+}
+
+.event-list li:hover {
+  background-color: #f1f1f1; /* Add hover effect for better interaction */
+}
