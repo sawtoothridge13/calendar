@@ -3,6 +3,7 @@ import './ChallengeCalendar.css';
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { useNavigate } from 'react-router-dom';
+import FormComponent from '../FormComponent/FormComponent'; // Ensure correct path
 import sportData from './sportData.json.json'; // Adjust the path to your actual file location
 
 const ChallengeCalendar = () => {
@@ -37,21 +38,23 @@ const ChallengeCalendar = () => {
     setEvents(transformedEvents);
   };
 
-  const isDateWithEvent = (date) => {
-    return events.some(
-      (event) => event.date.toDateString() === date.toDateString(),
-    );
-  };
-
   const handleDateClick = (date) => {
     const eventsForDate = events.filter(
       (event) => event.date.toDateString() === date.toDateString(),
     );
 
-    if (eventsForDate.length > 0) {
-      // Navigate to EventDetailsPage with events for the selected date
-      navigate('/EventDetailsPage', { state: { events: eventsForDate } });
-    }
+    navigate('/EventDetailsPage', {
+      state: { eventsForDate, events, setEvents },
+    });
+  };
+
+  const handleAddEvent = (title, description, dateTime) => {
+    const newEvent = {
+      date: dateTime,
+      title,
+      description,
+    };
+    setEvents([...events, newEvent]); // Update the global events state
   };
 
   const handleMonthChange = (direction) => {
@@ -61,6 +64,12 @@ const ChallengeCalendar = () => {
       1,
     );
     setCurrentDate(newDate);
+  };
+
+  const isDateWithEvent = (date) => {
+    return events.some(
+      (event) => event.date.toDateString() === date.toDateString(),
+    );
   };
 
   const monthName = currentDate.toLocaleString('default', { month: 'long' });
@@ -85,8 +94,11 @@ const ChallengeCalendar = () => {
         tileContent={({ date }) =>
           isDateWithEvent(date) ? <span className="event-dot"></span> : null
         }
-        showNavigation={false} // Disable default navigation to use custom buttons
+        showNavigation={false} // Disable default navigation
       />
+      <div className="form-container">
+        <FormComponent handleAddEvent={handleAddEvent} />
+      </div>
     </div>
   );
 };
