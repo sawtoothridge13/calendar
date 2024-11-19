@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import sportData from './sportData.json.json'; // Adjust the path to your actual file location
 
 const ChallengeCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date(2024, 0, 1)); // Set initial date to January 1, 2024
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1)); // Set initial date to January 2024
+  const [selectedDate, setSelectedDate] = useState(new Date(2024, 0, 1)); // Set initial selected date
   const [events, setEvents] = useState([]);
   const navigate = useNavigate(); // Use React Router navigation
 
@@ -53,19 +54,38 @@ const ChallengeCalendar = () => {
     }
   };
 
+  const handleMonthChange = (direction) => {
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + direction,
+      1,
+    );
+    setCurrentDate(newDate);
+  };
+
+  const monthName = currentDate.toLocaleString('default', { month: 'long' });
+
   return (
     <div className="calendar-container">
       <h1>My Calendar</h1>
+      <div className="calendar-header">
+        <button onClick={() => handleMonthChange(-1)}>&lt; Previous</button>
+        <span className="month-name">
+          {monthName} {currentDate.getFullYear()}
+        </span>
+        <button onClick={() => handleMonthChange(1)}>Next &gt;</button>
+      </div>
       <Calendar
         className="react-calendar"
         onClickDay={handleDateClick} // Handle day click to navigate
         value={selectedDate}
+        activeStartDate={currentDate} // Use currentDate to control the active month
         minDate={new Date(2024, 0, 1)} // January 1, 2024
-        maxDate={new Date(2024, 0, 31)} // January 31, 2024
+        maxDate={new Date(2024, 11, 31)} // December 31, 2024
         tileContent={({ date }) =>
           isDateWithEvent(date) ? <span className="event-dot"></span> : null
         }
-        showNavigation={false} // Hide navigation buttons
+        showNavigation={false} // Disable default navigation to use custom buttons
       />
     </div>
   );

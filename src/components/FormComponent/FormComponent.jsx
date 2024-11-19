@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 const FormComponent = ({ handleAddEvent }) => {
   const [eventTitle, setEventTitle] = useState('');
   const [eventDescription, setEventDescription] = useState('');
+  const [eventDate, setEventDate] = useState(''); // New state for date input
   const [eventTime, setEventTime] = useState(''); // New state for time input
   const [error, setError] = useState('');
 
@@ -17,6 +18,11 @@ const FormComponent = ({ handleAddEvent }) => {
     setError('');
   };
 
+  const handleEventDateChange = (e) => {
+    setEventDate(e.target.value);
+    setError('');
+  };
+
   const handleEventTimeChange = (e) => {
     setEventTime(e.target.value);
     setError('');
@@ -27,6 +33,7 @@ const FormComponent = ({ handleAddEvent }) => {
     if (
       eventTitle.trim() === '' ||
       eventDescription.trim() === '' ||
+      eventDate.trim() === '' ||
       eventTime.trim() === ''
     ) {
       setError('Please fill out all fields.');
@@ -34,13 +41,14 @@ const FormComponent = ({ handleAddEvent }) => {
     }
 
     // Combine the date and time to create a full Date object
+    const [year, month, day] = eventDate.split('-').map(Number);
     const [hours, minutes] = eventTime.split(':').map(Number);
-    const eventDateTime = new Date();
-    eventDateTime.setHours(hours, minutes, 0, 0);
+    const eventDateTime = new Date(year, month - 1, day, hours, minutes);
 
     handleAddEvent(eventTitle, eventDescription, eventDateTime); // Pass the date-time along with title and description
     setEventTitle('');
     setEventDescription('');
+    setEventDate('');
     setEventTime('');
     setError('');
   };
@@ -62,6 +70,14 @@ const FormComponent = ({ handleAddEvent }) => {
           value={eventDescription}
           onChange={handleEventDescriptionChange}
         ></textarea>
+
+        <label htmlFor="eventDate">Event Date:</label>
+        <input
+          type="date"
+          id="eventDate"
+          value={eventDate}
+          onChange={handleEventDateChange}
+        />
 
         <label htmlFor="eventTime">Event Time:</label>
         <input
