@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 const FormComponent = ({ handleAddEvent }) => {
   const [eventTitle, setEventTitle] = useState('');
   const [eventDescription, setEventDescription] = useState('');
+  const [eventTime, setEventTime] = useState(''); // New state for time input
   const [error, setError] = useState('');
 
   const handleEventTitleChange = (e) => {
@@ -16,15 +17,31 @@ const FormComponent = ({ handleAddEvent }) => {
     setError('');
   };
 
+  const handleEventTimeChange = (e) => {
+    setEventTime(e.target.value);
+    setError('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (eventTitle.trim() === '' || eventDescription.trim() === '') {
-      setError('Please enter a title and description');
+    if (
+      eventTitle.trim() === '' ||
+      eventDescription.trim() === '' ||
+      eventTime.trim() === ''
+    ) {
+      setError('Please fill out all fields.');
       return;
     }
-    handleAddEvent(eventTitle, eventDescription);
+
+    // Combine the date and time to create a full Date object
+    const [hours, minutes] = eventTime.split(':').map(Number);
+    const eventDateTime = new Date();
+    eventDateTime.setHours(hours, minutes, 0, 0);
+
+    handleAddEvent(eventTitle, eventDescription, eventDateTime); // Pass the date-time along with title and description
     setEventTitle('');
     setEventDescription('');
+    setEventTime('');
     setError('');
   };
 
@@ -38,12 +55,22 @@ const FormComponent = ({ handleAddEvent }) => {
           value={eventTitle}
           onChange={handleEventTitleChange}
         />
+
         <label htmlFor="eventDescription">Event Description:</label>
         <textarea
           id="eventDescription"
           value={eventDescription}
           onChange={handleEventDescriptionChange}
         ></textarea>
+
+        <label htmlFor="eventTime">Event Time:</label>
+        <input
+          type="time"
+          id="eventTime"
+          value={eventTime}
+          onChange={handleEventTimeChange}
+        />
+
         <button type="submit">Add Event</button>
       </form>
       {error && <p className="error-message">{error}</p>}

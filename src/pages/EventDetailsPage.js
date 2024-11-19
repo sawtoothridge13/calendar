@@ -8,9 +8,9 @@ export const EventDetailsPage = () => {
   const initialEvents = location.state?.events || []; // Retrieve events passed from homepage
   const [events, setEvents] = useState(initialEvents); // Manage events locally on this page
 
-  const handleAddEvent = (title, description) => {
+  const handleAddEvent = (title, description, dateTime) => {
     const newEvent = {
-      date: new Date(), // Use the current date; adjust if you want it to match the homepage
+      date: dateTime,
       title,
       description,
     };
