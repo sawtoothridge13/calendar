@@ -7,11 +7,12 @@ const EventListComponent = ({ events }) => {
       {events && events.length > 0 ? (
         <ul>
           {events.map((event, index) => {
-            const formattedDate = event.date.toLocaleDateString();
-            const formattedTime = event.date.toLocaleTimeString([], {
+            const eventDate = new Date(event.date); // Ensure `event.date` is a Date object
+            const formattedDate = eventDate.toLocaleDateString();
+            const formattedTime = eventDate.toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
-              hour12: false,
+              hour12: false, // 24-hour format
             });
 
             return (

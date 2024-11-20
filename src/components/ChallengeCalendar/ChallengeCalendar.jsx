@@ -8,31 +8,19 @@ import sportData from './sportData.json.json';
 
 const ChallengeCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1));
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]); // Local events state
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedEvents = localStorage.getItem('events');
-    if (storedEvents) {
-      const parsedEvents = JSON.parse(storedEvents).map((event) => ({
-        ...event,
-        date: new Date(event.date), // Convert date back to a Date object
-      }));
-      setEvents(parsedEvents);
-    } else {
-      transformData();
-    }
-  }, []);
-
-  const transformData = () => {
-    const transformedEvents = sportData.data.map((event) => {
+  // Function to transform preloaded events
+  const transformPreloadedData = () => {
+    return sportData.data.map((event) => {
       const [year, month, day] = event.dateVenue.split('-').map(Number);
       const [hour, minute, second] = event.timeVenueUTC.split(':').map(Number);
       const eventDate = new Date(
         Date.UTC(year, month - 1, day, hour, minute, second),
-      );
+      ); // month is zero-based
       return {
-        date: eventDate,
+        date: eventDate.toISOString(), // Save dates as ISO strings for consistency
         homeTeam: event.homeTeam?.name || 'TBD',
         awayTeam: event.awayTeam?.name || 'TBD',
         description: `${event.stage.name || 'Unknown Stage'} - ${
@@ -44,33 +32,50 @@ const ChallengeCalendar = () => {
         }`,
       };
     });
-    setEvents(transformedEvents);
   };
 
+  // Load events from localStorage or preloaded data
+  useEffect(() => {
+    const storedEvents = localStorage.getItem('events');
+    const preloadedEvents = transformPreloadedData();
+    const mergedEvents = storedEvents
+      ? mergeEvents(preloadedEvents, JSON.parse(storedEvents))
+      : preloadedEvents;
+
+    setEvents(mergedEvents);
+    localStorage.setItem('events', JSON.stringify(mergedEvents));
+  }, []);
+
+  // Merge preloaded and stored events, avoiding duplicates
+  const mergeEvents = (preloadedEvents, storedEvents) => {
+    const eventSet = new Map();
+    [...preloadedEvents, ...storedEvents].forEach((event) => {
+      eventSet.set(event.date + event.homeTeam + event.awayTeam, event);
+    });
+    return Array.from(eventSet.values());
+  };
+
+  // Handle adding a new event
+  const handleAddEvent = (newEvent) => {
+    const updatedEvents = mergeEvents(events, [
+      { ...newEvent, date: newEvent.date.toISOString() },
+    ]);
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
+  // Handle date click to navigate to the EventDetailsPage with events for that date
   const handleDateClick = (date) => {
     const eventsForDate = events.filter(
-      (event) => event.date.toDateString() === date.toDateString(),
+      (event) => new Date(event.date).toDateString() === date.toDateString(),
     );
 
     navigate('/EventDetailsPage', {
-      state: { eventsForDate, allEvents: events },
+      state: { eventsForDate }, // Pass only the events for the selected date
     });
   };
 
-  const handleAddEvent = (newEvent) => {
-    const updatedEvents = [...events, newEvent];
-    setEvents(updatedEvents);
-    localStorage.setItem(
-      'events',
-      JSON.stringify(
-        updatedEvents.map((event) => ({
-          ...event,
-          date: event.date.toISOString(),
-        })),
-      ),
-    );
-  };
-
+  // Handle month navigation
   const handleMonthChange = (direction) => {
     const newDate = new Date(
       currentDate.getFullYear(),
@@ -80,17 +85,19 @@ const ChallengeCalendar = () => {
     setCurrentDate(newDate);
   };
 
+  // Check if a date has events
   const isDateWithEvent = (date) => {
     return events.some(
-      (event) => event.date.toDateString() === date.toDateString(),
+      (event) => new Date(event.date).toDateString() === date.toDateString(),
     );
   };
 
+  // Get the current month's name
   const monthName = currentDate.toLocaleString('default', { month: 'long' });
 
   return (
     <div className="calendar-container">
-      <h1>My Calendar</h1>
+      <h1>Challenge Calendar</h1>
       <div className="calendar-header">
         <button onClick={() => handleMonthChange(-1)}>&lt; Previous</button>
         <span className="month-name">
@@ -100,7 +107,7 @@ const ChallengeCalendar = () => {
       </div>
       <Calendar
         className="react-calendar"
-        onClickDay={handleDateClick}
+        onClickDay={handleDateClick} // Handle day click to navigate
         value={currentDate}
         activeStartDate={currentDate}
         minDate={new Date(2024, 0, 1)}

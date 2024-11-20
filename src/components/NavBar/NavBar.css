@@ -3,18 +3,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff; /* Matches the primary button and active tile color */
+  background-color: #007bff;
   color: #fff;
   padding: 15px 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  position: sticky; /* Keeps the navbar visible on scroll */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures it stays above other elements */
+  z-index: 1000;
 }
 
-/* Left section for logo */
 .navbar-left .logo {
-  font-size: 1.8rem; /* Slightly larger font for prominence */
+  font-size: 1.8rem;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
@@ -22,10 +21,9 @@
 }
 
 .navbar-left .logo:hover {
-  color: #0056b3; /* Matches hover effect of buttons */
+  color: #0056b3;
 }
 
-/* Center section for navigation links */
 .navbar-center .nav-links {
   list-style-type: none;
   display: flex;
@@ -34,7 +32,7 @@
 }
 
 .navbar-center .nav-links li {
-  margin-right: 1.5rem; /* Increased spacing for better readability */
+  margin-right: 1.5rem;
 }
 
 .navbar-center .nav-links a {
@@ -46,95 +44,6 @@
 }
 
 .navbar-center .nav-links a:hover {
-  color: #e6f7ff; /* Matches calendar tile hover */
-  transform: scale(1.1); /* Slight hover enlargement for interactivity */
-}
-
-/* Right section for any additional actions (optional) */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Spacing between right-side elements */
-}
-
-.navbar-right button {
-  padding: 8px 12px;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.navbar-right button:hover {
-  background-color: #e6f7ff;
-  transform: scale(1.05);
-}
-
-/* Mobile styles */
-@media (max-width: 480px) {
-  .navbar {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;
-    padding: 10px 15px;
-  }
-
-  .navbar-left .logo {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .navbar-center .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px;
-  }
-
-  .navbar-center .nav-links li {
-    margin-right: 0; /* Remove horizontal spacing */
-  }
-
-  .navbar-right {
-    flex-direction: column;
-    gap: 5px;
-  }
-}
-
-/* Tablet styles */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 12px 18px;
-  }
-
-  .navbar-left .logo {
-    font-size: 1.6rem;
-  }
-
-  .navbar-center .nav-links a {
-    font-size: 0.95rem;
-  }
-
-  .navbar-right button {
-    font-size: 0.9rem;
-  }
-}
-
-/* Desktop styles */
-@media (min-width: 1024px) {
-  .navbar {
-    padding: 20px 30px;
-  }
-
-  .navbar-left .logo {
-    font-size: 2rem;
-  }
-
-  .navbar-center .nav-links a {
-    font-size: 1.1rem;
-  }
-
-  .navbar-right button {
-    font-size: 1rem;
-  }
+  color: #e6f7ff;
+  transform: scale(1.1);
 }
