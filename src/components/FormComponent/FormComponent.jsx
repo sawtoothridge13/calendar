@@ -62,13 +62,6 @@ const FormComponent = ({ handleAddEvent }) => {
           onChange={(e) => setAwayTeam(e.target.value)}
         />
 
-        <label htmlFor="eventDescription">Event Description:</label>
-        <textarea
-          id="eventDescription"
-          value={eventDescription}
-          onChange={(e) => setEventDescription(e.target.value)}
-        ></textarea>
-
         <label htmlFor="eventDate">Event Date:</label>
         <input
           type="date"
@@ -84,6 +77,13 @@ const FormComponent = ({ handleAddEvent }) => {
           value={eventTime}
           onChange={(e) => setEventTime(e.target.value)}
         />
+
+        <label htmlFor="eventDescription">Event Description:</label>
+        <textarea
+          id="eventDescription"
+          value={eventDescription}
+          onChange={(e) => setEventDescription(e.target.value)}
+        ></textarea>
 
         <button type="submit">Add Event</button>
       </form>
