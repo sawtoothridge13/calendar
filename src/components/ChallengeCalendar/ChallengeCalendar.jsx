@@ -117,9 +117,6 @@ const ChallengeCalendar = () => {
         }
         showNavigation={false}
       />
-      <div className="form-container">
-        <FormComponent handleAddEvent={handleAddEvent} />
-      </div>
     </div>
   );
 };

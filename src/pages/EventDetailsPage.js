@@ -1,35 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import EventListComponent from '../components/EventList/EventListComponent';
 import FormComponent from '../components/FormComponent/FormComponent';
 
 const EventDetailsPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [events, setEvents] = useState(location.state?.allEvents || []);
-  const eventsForDate = location.state?.eventsForDate || [];
+  const preloadedEvents = location.state?.eventsForDate || []; // Retrieve events from state
+  const [events, setEvents] = useState(preloadedEvents); // Maintain the events state
 
+  // Add newly submitted event
   const handleAddEvent = (newEvent) => {
     const updatedEvents = [...events, newEvent];
     setEvents(updatedEvents);
-    localStorage.setItem('events', JSON.stringify(updatedEvents));
+
+    // Update localStorage for persistence
+    const allEvents = JSON.parse(localStorage.getItem('events')) || [];
+    localStorage.setItem('events', JSON.stringify([...allEvents, newEvent]));
   };
 
+  // Retrieve all events from localStorage on initial load (if needed)
   useEffect(() => {
-    const storedEvents = localStorage.getItem('events');
-    if (storedEvents) {
-      setEvents(JSON.parse(storedEvents));
-    }
-  }, []);
+    const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    const mergedEvents = [...preloadedEvents, ...storedEvents];
+    setEvents(mergedEvents);
+  }, [preloadedEvents]);
 
   return (
     <div className="event-details-container">
       <h1>Event Details</h1>
-      <button onClick={() => navigate('/')} className="back-button">
-        Back to Calendar
-      </button>
-      <FormComponent handleAddEvent={handleAddEvent} />
-      <EventListComponent events={eventsForDate} />
+
+      {/* Form for adding new events */}
+      <div className="event-details-form">
+        <FormComponent handleAddEvent={handleAddEvent} />
+      </div>
+
+      {/* List of events */}
+      <EventListComponent events={events} />
     </div>
   );
 };
