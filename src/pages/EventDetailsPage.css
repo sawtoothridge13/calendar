@@ -1,0 +1,123 @@
+/* Main container for the Event Details Page */
+.event-details-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px; /* Matches calendar, form, and event list */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for consistency */
+  text-align: center; /* Center text alignment */
+}
+
+/* Header for the Event Details Page */
+.event-details-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Matches labels in the form */
+}
+
+/* Event Details Section */
+.event-details {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for each detail */
+  text-align: left;
+}
+
+.event-details p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.event-details p strong {
+  color: #007bff; /* Highlight key details with primary color */
+}
+
+/* Form Section */
+.event-details-form {
+  margin-top: 20px;
+}
+
+/* Reuse form-container styles from FormComponent.css */
+.event-details-form .form-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px; /* Matches event details and calendar */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .event-details-container {
+    max-width: 95%; /* Matches calendar width on mobile */
+    padding: 15px;
+  }
+
+  .event-details-container h1 {
+    font-size: 20px;
+  }
+
+  .event-details {
+    padding: 10px;
+  }
+
+  .event-details p {
+    font-size: 14px;
+  }
+
+  .event-details-form .form-container {
+    max-width: 95%; /* Matches container width on mobile */
+    padding: 15px;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .event-details-container {
+    max-width: 90%; /* Matches tablet width of other components */
+    padding: 20px;
+  }
+
+  .event-details-container h1 {
+    font-size: 22px;
+  }
+
+  .event-details p {
+    font-size: 15px;
+  }
+
+  .event-details-form .form-container {
+    max-width: 600px; /* Matches calendar and event details */
+    padding: 20px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .event-details-container {
+    max-width: 600px; /* Matches calendar and event list width */
+    padding: 30px;
+  }
+
+  .event-details-container h1 {
+    font-size: 24px;
+  }
+
+  .event-details p {
+    font-size: 16px;
+  }
+
+  .event-details-form .form-container {
+    max-width: 600px; /* Matches event details and calendar */
+    padding: 30px;
+  }
+}
