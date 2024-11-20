@@ -29,3 +29,32 @@
   color: #fff;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-center .nav-links {
+    flex-direction: column;
+  }
+
+  .navbar-center .nav-links li {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .navbar-left .logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar-center .nav-links a {
+    font-size: 14px;
+  }
+}

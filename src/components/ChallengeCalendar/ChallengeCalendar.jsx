@@ -77,7 +77,7 @@ const ChallengeCalendar = () => {
 
   return (
     <div className="calendar-container">
-      <h1>My Calendar</h1>
+      <h1>Challenge Calendar</h1>
       <div className="calendar-header">
         <button onClick={() => handleMonthChange(-1)}>&lt; Previous</button>
         <span className="month-name">

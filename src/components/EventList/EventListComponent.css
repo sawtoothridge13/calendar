@@ -1,47 +1,59 @@
 .event-list {
   margin: 20px auto;
   padding: 10px;
-  max-width: 500px;
+  max-width: 600px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9; /* Match form background */
-  text-align: left; /* Align content to the left */
+  background-color: #f9f9f9;
+  text-align: center;
 }
 
-.event-list h2 {
-  font-size: 20px;
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
   font-weight: bold;
-  color: #333; /* Match label styles in FormComponent */
-  margin-bottom: 15px;
-  text-align: center; /* Center the heading */
+  color: #333;
 }
 
-.event-list ul {
+ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.event-list li {
+li {
   padding: 10px;
-  border-bottom: 1px solid #ddd; /* Add separators between events */
+  border-bottom: 1px solid #ddd;
 }
 
-.event-list li:last-child {
-  border-bottom: none; /* Remove the bottom border for the last item */
+li:last-child {
+  border-bottom: none;
 }
 
-.event-list li p {
+p {
   margin: 5px 0;
   font-size: 14px;
-  color: #555;
 }
 
-.event-list li p strong {
-  font-weight: bold;
-  color: #333; /* Emphasize labels */
+@media (max-width: 768px) {
+  .event-list {
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 12px;
+  }
 }
 
-.event-list li:hover {
-  background-color: #f1f1f1; /* Add hover effect for better interaction */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 11px;
+  }
 }
