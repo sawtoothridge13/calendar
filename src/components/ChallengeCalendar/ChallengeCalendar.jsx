@@ -3,26 +3,34 @@ import './ChallengeCalendar.css';
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { useNavigate } from 'react-router-dom';
-import FormComponent from '../FormComponent/FormComponent'; // Ensure correct path
-import sportData from './sportData.json.json'; // Adjust the path to your actual file location
+import FormComponent from '../FormComponent/FormComponent';
+import sportData from './sportData.json.json';
 
 const ChallengeCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1));
-  const [events, setEvents] = useState([]); // Local events state
+  const [events, setEvents] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    transformData();
+    const storedEvents = localStorage.getItem('events');
+    if (storedEvents) {
+      const parsedEvents = JSON.parse(storedEvents).map((event) => ({
+        ...event,
+        date: new Date(event.date), // Convert date back to a Date object
+      }));
+      setEvents(parsedEvents);
+    } else {
+      transformData();
+    }
   }, []);
 
-  // Transform preloaded JSON data into the new event structure
   const transformData = () => {
     const transformedEvents = sportData.data.map((event) => {
       const [year, month, day] = event.dateVenue.split('-').map(Number);
       const [hour, minute, second] = event.timeVenueUTC.split(':').map(Number);
       const eventDate = new Date(
         Date.UTC(year, month - 1, day, hour, minute, second),
-      ); // month is zero-based
+      );
       return {
         date: eventDate,
         homeTeam: event.homeTeam?.name || 'TBD',
@@ -39,23 +47,30 @@ const ChallengeCalendar = () => {
     setEvents(transformedEvents);
   };
 
-  // Handle date click to navigate to the EventDetailsPage with events for that date
   const handleDateClick = (date) => {
     const eventsForDate = events.filter(
       (event) => event.date.toDateString() === date.toDateString(),
     );
 
     navigate('/EventDetailsPage', {
-      state: { eventsForDate }, // Pass only the events for the selected date
+      state: { eventsForDate, allEvents: events },
     });
   };
 
-  // Handle adding a new event
   const handleAddEvent = (newEvent) => {
-    setEvents([...events, newEvent]); // Update local events
+    const updatedEvents = [...events, newEvent];
+    setEvents(updatedEvents);
+    localStorage.setItem(
+      'events',
+      JSON.stringify(
+        updatedEvents.map((event) => ({
+          ...event,
+          date: event.date.toISOString(),
+        })),
+      ),
+    );
   };
 
-  // Handle month navigation
   const handleMonthChange = (direction) => {
     const newDate = new Date(
       currentDate.getFullYear(),
@@ -65,19 +80,17 @@ const ChallengeCalendar = () => {
     setCurrentDate(newDate);
   };
 
-  // Check if a date has events
   const isDateWithEvent = (date) => {
     return events.some(
       (event) => event.date.toDateString() === date.toDateString(),
     );
   };
 
-  // Get the current month's name
   const monthName = currentDate.toLocaleString('default', { month: 'long' });
 
   return (
     <div className="calendar-container">
-      <h1>Challenge Calendar</h1>
+      <h1>My Calendar</h1>
       <div className="calendar-header">
         <button onClick={() => handleMonthChange(-1)}>&lt; Previous</button>
         <span className="month-name">
@@ -87,7 +100,7 @@ const ChallengeCalendar = () => {
       </div>
       <Calendar
         className="react-calendar"
-        onClickDay={handleDateClick} // Handle day click to navigate
+        onClickDay={handleDateClick}
         value={currentDate}
         activeStartDate={currentDate}
         minDate={new Date(2024, 0, 1)}

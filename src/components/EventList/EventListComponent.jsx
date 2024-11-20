@@ -11,7 +11,7 @@ const EventListComponent = ({ events }) => {
             const formattedTime = event.date.toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
-              hour12: false, // 24-hour format
+              hour12: false,
             });
 
             return (
