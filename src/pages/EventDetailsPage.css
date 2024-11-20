@@ -8,8 +8,8 @@
   background-color: #f9f9f9;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for consistency */
   text-align: center; /* Center text alignment */
+  overflow: hidden; /* Prevent content overflow */
 }
-
 /* Header for the Event Details Page */
 .event-details-container h1 {
   margin-bottom: 20px;
@@ -41,7 +41,12 @@
 
 /* Form Section */
 .event-details-form {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin: 20px 0; /* Space around the form */
+  width: 100%;
 }
 
 /* Reuse form-container styles from FormComponent.css */
@@ -53,6 +58,10 @@
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  width: 100%;
+  max-width: 100%; /* Prevent form from exceeding container width */
+  width: 100%; /* Ensure responsive scaling */
 }
 
 /* Mobile Styles */
