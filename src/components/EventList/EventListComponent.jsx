@@ -23,7 +23,10 @@ const EventListComponent = ({ events }) => {
                   <strong>Time:</strong> {formattedTime}
                 </p>
                 <p>
-                  <strong>Title:</strong> {event.title}
+                  <strong>Home Team:</strong> {event.homeTeam || 'TBD'}
+                </p>
+                <p>
+                  <strong>Away Team:</strong> {event.awayTeam || 'TBD'}
                 </p>
                 <p>
                   <strong>Description:</strong> {event.description}

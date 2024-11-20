@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles from './FormComponent.css';
 
 const FormComponent = ({ handleAddEvent }) => {
-  const [eventTitle, setEventTitle] = useState('');
+  const [homeTeam, setHomeTeam] = useState('');
+  const [awayTeam, setAwayTeam] = useState('');
   const [eventDescription, setEventDescription] = useState('');
   const [eventDate, setEventDate] = useState(''); // New state for date input
   const [eventTime, setEventTime] = useState(''); // New state for time input
@@ -11,7 +12,8 @@ const FormComponent = ({ handleAddEvent }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      eventTitle.trim() === '' ||
+      homeTeam.trim() === '' ||
+      awayTeam.trim() === '' ||
       eventDescription.trim() === '' ||
       eventDate.trim() === '' ||
       eventTime.trim() === ''
@@ -25,8 +27,16 @@ const FormComponent = ({ handleAddEvent }) => {
     const [hours, minutes] = eventTime.split(':').map(Number);
     const eventDateTime = new Date(year, month - 1, day, hours, minutes);
 
-    handleAddEvent(eventTitle, eventDescription, eventDateTime); // Pass the date-time along with title and description
-    setEventTitle('');
+    const newEvent = {
+      homeTeam,
+      awayTeam,
+      description: eventDescription,
+      date: eventDateTime,
+    };
+
+    handleAddEvent(newEvent); // Pass the new event object
+    setHomeTeam('');
+    setAwayTeam('');
     setEventDescription('');
     setEventDate('');
     setEventTime('');
@@ -36,12 +46,20 @@ const FormComponent = ({ handleAddEvent }) => {
   return (
     <div className={styles['form-container']}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="eventTitle">Event Title:</label>
+        <label htmlFor="homeTeam">Home Team:</label>
         <input
           type="text"
-          id="eventTitle"
-          value={eventTitle}
-          onChange={(e) => setEventTitle(e.target.value)}
+          id="homeTeam"
+          value={homeTeam}
+          onChange={(e) => setHomeTeam(e.target.value)}
+        />
+
+        <label htmlFor="awayTeam">Away Team:</label>
+        <input
+          type="text"
+          id="awayTeam"
+          value={awayTeam}
+          onChange={(e) => setAwayTeam(e.target.value)}
         />
 
         <label htmlFor="eventDescription">Event Description:</label>

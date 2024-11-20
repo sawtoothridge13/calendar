@@ -15,6 +15,7 @@ const ChallengeCalendar = () => {
     transformData();
   }, []);
 
+  // Transform preloaded JSON data into the new event structure
   const transformData = () => {
     const transformedEvents = sportData.data.map((event) => {
       const [year, month, day] = event.dateVenue.split('-').map(Number);
@@ -24,10 +25,11 @@ const ChallengeCalendar = () => {
       ); // month is zero-based
       return {
         date: eventDate,
-        title: `${event.homeTeam?.name || 'TBD'} vs ${
-          event.awayTeam?.name || 'TBD'
-        }`,
-        description: `${event.stage.name} - ${event.originCompetitionName}. ${
+        homeTeam: event.homeTeam?.name || 'TBD',
+        awayTeam: event.awayTeam?.name || 'TBD',
+        description: `${event.stage.name || 'Unknown Stage'} - ${
+          event.originCompetitionName || 'Unknown Competition'
+        }. ${
           event.result
             ? `${event.result.homeGoals ?? 0} - ${event.result.awayGoals ?? 0}`
             : 'Not yet played'
@@ -37,6 +39,7 @@ const ChallengeCalendar = () => {
     setEvents(transformedEvents);
   };
 
+  // Handle date click to navigate to the EventDetailsPage with events for that date
   const handleDateClick = (date) => {
     const eventsForDate = events.filter(
       (event) => event.date.toDateString() === date.toDateString(),
@@ -47,15 +50,12 @@ const ChallengeCalendar = () => {
     });
   };
 
-  const handleAddEvent = (title, description, dateTime) => {
-    const newEvent = {
-      date: dateTime,
-      title,
-      description,
-    };
+  // Handle adding a new event
+  const handleAddEvent = (newEvent) => {
     setEvents([...events, newEvent]); // Update local events
   };
 
+  // Handle month navigation
   const handleMonthChange = (direction) => {
     const newDate = new Date(
       currentDate.getFullYear(),
@@ -65,12 +65,14 @@ const ChallengeCalendar = () => {
     setCurrentDate(newDate);
   };
 
+  // Check if a date has events
   const isDateWithEvent = (date) => {
     return events.some(
       (event) => event.date.toDateString() === date.toDateString(),
     );
   };
 
+  // Get the current month's name
   const monthName = currentDate.toLocaleString('default', { month: 'long' });
 
   return (
