@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="navbar-left">
         <a href="/" className="logo">
-          Challenge
+          Challenge Events
         </a>
       </div>
       <div className="navbar-center">

@@ -4,7 +4,6 @@ import { FaTrash } from 'react-icons/fa';
 const EventListComponent = ({ events, handleDeleteEvent }) => {
   return (
     <div className="event-list">
-      <h2>Events</h2>
       {events.length > 0 ? (
         <ul>
           {events.map((event, index) => {
