@@ -6,7 +6,7 @@ Here’s the step-by-step to-do list formatted for inclusion in a `README.md` fi
 
 ## Overview
 
-This project is a sports event calendar that allows users to view events, check event details, and add new events during runtime. It demonstrates understanding of basic frontend programming concepts, responsive design, and user interaction handling.
+This project is a sports event calendar app that allows users to view events, check event details, add & delete new events during runtime. It demonstrates understanding of basic frontend programming concepts, responsive design, and user interaction handling.
 
 ---
 
@@ -44,47 +44,47 @@ Ensure the following are installed:
 
 1. Clone the repository:
 
-    ```bash
-    git clone <repository-url>
-    ```
+   ```bash
+   git clone <repository-url>
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd <project-folder>
-    ```
+   ```bash
+   cd <project-folder>
+   ```
 
 3. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-    Or if using Yarn:
+   Or if using Yarn:
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 ### Running the Application
 
 1. Start the development server:
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
-    Or if using Yarn:
+   Or if using Yarn:
 
-    ```bash
-    yarn start
-    ```
+   ```bash
+   yarn start
+   ```
 
 2. Open the app in your browser:
 
-    ```plaintext
-    http://localhost:3000
-    ```
+   ```plaintext
+   http://localhost:3000
+   ```
 
 ---
 
@@ -98,11 +98,6 @@ Ensure the following are installed:
 - Display the days of the month in a grid format.
 - Indicate days with scheduled sports events (e.g., with a marker or dot).
 - Optionally, show brief event information (e.g., event name on the day cell).
-
-**Sample Events to Include**:
-
-- Sat., 18.07.2019, 18:30, Football, Salzburg vs. Sturm
-- Sun., 23.10.2019, 09:45, Ice Hockey, KAC vs. Capitals
 
 ### Task 2: Event Detail Page
 
@@ -144,12 +139,10 @@ Ensure the following are installed:
 
 ---
 
-## Additional Features (Optional)
+## Additional Features Added
 
-- **Filters:** Allow users to filter events by criteria (e.g., sport, date range).
-- **Styling and Enhancements:** Add CSS styling, animations, or transitions.
+- **Styling and Enhancements:** Add CSS styling, Delete Event button, toggle button functionality to be able to hide the Add Event Form.
 - **Persistent Storage:** Use local storage to retain events between sessions.
-- **Testing:** Write tests for components and functionality.
 
 ---
 
@@ -169,8 +162,6 @@ Ensure the following are installed:
 
 ## Assumptions
 
-1. Mock data will be provided as a `.json` file for initial setup.
-2. The application does not require backend or persistent storage.
-3. Time will be prioritized on completing core tasks over optional features.
+1. I assumed it was alright to alter the provided json file (e.g. adding a key-value pair such as "sport": "Soccer")
 
 ---
