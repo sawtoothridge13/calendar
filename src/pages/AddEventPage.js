@@ -45,7 +45,7 @@ const AddEventPage = () => {
         &larr; Back to Calendar
       </button>
 
-      <h1>Event Details</h1>
+      <h1>Scheduled Events</h1>
 
       <button
         className="toggle-form-button"

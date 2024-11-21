@@ -7,148 +7,33 @@
   background-color: #f9f9f9;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  overflow: hidden;
-  position: relative; /* Ensure child elements are positioned relative to this */
-}
-
-.event-details-container h1 {
-  margin-bottom: 20px;
-  font-size: 32px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Back to Calendar button */
-.back-to-calendar-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-to-calendar-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  overflow: hidden; /* Prevent overflowing content */
+  position: relative;
+  box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
 }
 
 .event-details-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  max-width: 100%; /* Ensure the form doesn't exceed its parent width */
-  overflow: hidden; /* Prevent content from spilling out */
-  box-sizing: border-box; /* Include padding and border in width calculation */
+  width: 100%; /* Ensure the form doesn't exceed the parent container */
+  box-sizing: border-box; /* Include padding in width */
+  margin-top: 20px; /* Add spacing between the form and other content */
+  padding: 15px; /* Optional: Add padding inside the form for better spacing */
 }
 
 .form-container {
-  width: 100%; /* Take up full width of the parent */
-  max-width: 500px; /* Set a maximum width for the form */
-  margin: 0 auto; /* Center the form horizontally */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Prevent padding from increasing width */
+  width: 100%; /* Match the width of the event-details-container */
+  max-width: 100%; /* Prevent the form from exceeding its parent width */
+  box-sizing: border-box; /* Ensure the padding is included in the width */
+  overflow: hidden; /* Prevent internal overflow */
 }
 
-/* Toggle Button */
-.toggle-form-button {
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.toggle-form-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-/* Back to Calendar button */
-.back-to-calendar-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-to-calendar-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-/* Mobile (up to 480px) */
+/* Responsive Adjustments */
 @media (max-width: 480px) {
-  .back-to-calendar-button {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .toggle-form-button {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
   .event-details-container {
-    padding: 10px;
-    max-width: 95%;
-  }
-}
-
-/* Tablet (481px to 1024px) */
-@media (max-width: 1024px) and (min-width: 481px) {
-  .back-to-calendar-button {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  .toggle-form-button {
-    font-size: 16px;
-    padding: 10px 15px;
-  }
-
-  .event-details-container {
+    max-width: 95%; /* Allow the container to use most of the screen width */
     padding: 15px;
-    max-width: 90%;
-  }
-}
-
-/* Desktop (1025px and above) */
-@media (min-width: 1025px) {
-  .back-to-calendar-button {
-    padding: 10px 20px;
-    font-size: 16px;
   }
 
-  .toggle-form-button {
-    font-size: 18px;
-    padding: 12px 20px;
-  }
-
-  .event-details-container {
-    padding: 20px;
-    max-width: 600px;
+  .event-details-form {
+    padding: 10px; /* Adjust padding for smaller screens */
   }
 }
