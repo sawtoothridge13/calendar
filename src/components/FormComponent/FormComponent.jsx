@@ -7,6 +7,7 @@ const FormComponent = ({ handleAddEvent }) => {
   const [eventDescription, setEventDescription] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [eventTime, setEventTime] = useState('');
+  const [sport, setSport] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -16,7 +17,8 @@ const FormComponent = ({ handleAddEvent }) => {
       awayTeam.trim() === '' ||
       eventDescription.trim() === '' ||
       eventDate.trim() === '' ||
-      eventTime.trim() === ''
+      eventTime.trim() === '' ||
+      sport.trim() === ''
     ) {
       setError('Please fill out all fields.');
       return;
@@ -31,6 +33,7 @@ const FormComponent = ({ handleAddEvent }) => {
       awayTeam,
       description: eventDescription,
       date: eventDateTime,
+      sport,
     };
 
     handleAddEvent(newEvent);
@@ -39,6 +42,7 @@ const FormComponent = ({ handleAddEvent }) => {
     setEventDescription('');
     setEventDate('');
     setEventTime('');
+    setSport('');
     setError('');
   };
 
@@ -79,6 +83,13 @@ const FormComponent = ({ handleAddEvent }) => {
           value={eventDescription}
           onChange={(e) => setEventDescription(e.target.value)}
         ></textarea>
+        <label htmlFor="sport">Sport:</label>
+        <input
+          type="text"
+          id="sport"
+          value={sport}
+          onChange={(e) => setSport(e.target.value)}
+        />
         <button type="submit">Add Event</button>
       </form>
       {error && <p className="error-message">{error}</p>}

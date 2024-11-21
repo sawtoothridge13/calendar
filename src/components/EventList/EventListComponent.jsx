@@ -1,19 +1,18 @@
 import './EventListComponent.css';
-import { FaTrash } from 'react-icons/fa'; // Import Font Awesome trash icon
+import { FaTrash } from 'react-icons/fa';
 
 const EventListComponent = ({ events, handleDeleteEvent }) => {
   return (
     <div className="event-list">
       <h2>Events</h2>
-      {events && events.length > 0 ? (
+      {events.length > 0 ? (
         <ul>
           {events.map((event, index) => {
-            const eventDate = new Date(event.date); // Ensure `event.date` is a Date object
+            const eventDate = new Date(event.date);
             const formattedDate = eventDate.toLocaleDateString();
             const formattedTime = eventDate.toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
-              hour12: false, // 24-hour format
             });
 
             return (
@@ -26,10 +25,13 @@ const EventListComponent = ({ events, handleDeleteEvent }) => {
                     <strong>Time:</strong> {formattedTime}
                   </p>
                   <p>
-                    <strong>Home Team:</strong> {event.homeTeam || 'TBD'}
+                    <strong>Home Team:</strong> {event.homeTeam}
                   </p>
                   <p>
-                    <strong>Away Team:</strong> {event.awayTeam || 'TBD'}
+                    <strong>Away Team:</strong> {event.awayTeam}
+                  </p>
+                  <p>
+                    <strong>Sport:</strong> {event.sport || 'N/A'}
                   </p>
                   <p>
                     <strong>Description:</strong> {event.description}
