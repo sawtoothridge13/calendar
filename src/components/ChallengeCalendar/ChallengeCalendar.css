@@ -155,29 +155,34 @@
 /* Desktop Styles */
 @media (min-width: 1024px) {
   .calendar-container {
-    max-width: 600px; /* Matches calendar and form width */
-    padding: 30px;
+    width: 900px; /* Increased width for a larger calendar */
+    padding: 40px; /* Add padding for spacing */
+    margin: 50px auto; /* Center the container with more vertical spacing */
   }
 
   .calendar-header {
-    max-width: 600px;
+    width: 100%; /* Header spans the full width of the container */
+    padding: 20px;
   }
 
   .calendar-header button {
-    font-size: 18px;
-    padding: 15px 25px;
+    font-size: 18px; /* Larger buttons */
+    padding: 15px 25px; /* Larger click area for buttons */
   }
 
   .month-name {
-    font-size: 22px;
+    font-size: 26px; /* Emphasize the current month */
   }
 
   .react-calendar {
-    max-width: 600px; /* Matches container width */
+    width: 100%; /* Matches container width */
+    max-width: 100%; /* Prevents stretching */
+    padding: 20px; /* Add spacing inside the calendar */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for emphasis */
   }
 
   .react-calendar__tile {
-    padding: 20px;
-    font-size: 16px;
+    padding: 25px; /* Larger clickable tiles */
+    font-size: 18px; /* Bigger font size for readability */
   }
 }

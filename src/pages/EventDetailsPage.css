@@ -9,6 +9,7 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for consistency */
   text-align: center; /* Center text alignment */
   overflow: hidden; /* Prevent content overflow */
+  position: relative;
 }
 /* Header for the Event Details Page */
 .event-details-container h1 {
@@ -62,6 +63,26 @@
   width: 100%;
   max-width: 100%; /* Prevent form from exceeding container width */
   width: 100%; /* Ensure responsive scaling */
+}
+
+.back-to-calendar-button {
+  position: absolute; /* Position relative to the container */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10; /* Ensure it's above other content */
+}
+
+.back-to-calendar-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Mobile Styles */
@@ -129,21 +150,4 @@
     max-width: 600px; /* Matches event details and calendar */
     padding: 30px;
   }
-}
-
-.back-to-calendar-button {
-  padding: 10px 20px;
-  margin: 20px 0;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-to-calendar-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
 }
