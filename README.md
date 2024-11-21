@@ -32,59 +32,40 @@ This project is a sports event calendar app that allows users to view events, ch
 
 ## Getting Started
 
-### Prerequisites
+### Installing the Latest Version of React
 
-Ensure the following are installed:
+1. **Ensure Node.js is Installed**:
 
-- [Node.js](https://nodejs.org/) (LTS version recommended)
-- npm (comes with Node.js) or Yarn
-- A code editor (e.g., [Visual Studio Code](https://code.visualstudio.com/))
+   - Download and install [Node.js](https://nodejs.org/), which includes npm (Node Package Manager).
+   - Verify installation by running:
+     ```bash
+     node -v
+     npm -v
+     ```
 
-### Installation
+2. **Create a New React App**:
 
-1. Clone the repository:
+   - Use the `npx` tool (included with npm 5.2+ and higher) to create a React app with the latest version:
+     ```bash
+     npx create-react-app my-app
+     ```
+   - Replace `my-app` with your desired project name.
 
-   ```bash
-   git clone <repository-url>
-   ```
+3. **Navigate to the Project Directory**:
 
-2. Navigate to the project directory:
+   - Move into your new app’s directory:
+     ```bash
+     cd my-app
+     ```
 
-   ```bash
-   cd <project-folder>
-   ```
+4. **Start the Development Server**:
+   - Run the following command to start your app:
+     ```bash
+     npm start
+     ```
+   - The app will open in your browser at `http://localhost:3000`.
 
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-   Or if using Yarn:
-
-   ```bash
-   yarn install
-   ```
-
-### Running the Application
-
-1. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-   Or if using Yarn:
-
-   ```bash
-   yarn start
-   ```
-
-2. Open the app in your browser:
-
-   ```plaintext
-   http://localhost:3000
-   ```
+For more details, refer to the [React documentation](https://reactjs.org/docs/getting-started.html).
 
 ---
 
