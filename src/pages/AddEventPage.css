@@ -1,39 +1,71 @@
+/* Main Container for the Add Event Page */
 .event-details-container {
-  margin: 20px auto;
+  margin: 20px auto; /* Center with spacing */
   padding: 20px;
-  max-width: 600px;
+  max-width: 600px; /* Limit container width */
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center align content */
   overflow: hidden; /* Prevent overflowing content */
   position: relative;
-  box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
+  box-sizing: border-box; /* Include padding in width calculations */
 }
 
+/* Form Section */
 .event-details-form {
-  width: 100%; /* Ensure the form doesn't exceed the parent container */
-  box-sizing: border-box; /* Include padding in width */
-  margin-top: 20px; /* Add spacing between the form and other content */
-  padding: 15px; /* Optional: Add padding inside the form for better spacing */
+  width: 100%; /* Full width within the container */
+  margin-top: 20px; /* Spacing above the form */
+  padding: 15px;
 }
 
-.form-container {
-  width: 100%; /* Match the width of the event-details-container */
-  max-width: 100%; /* Prevent the form from exceeding its parent width */
-  box-sizing: border-box; /* Ensure the padding is included in the width */
-  overflow: hidden; /* Prevent internal overflow */
+/* Button to Toggle the Form */
+.toggle-form-button {
+  margin: 15px 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-form-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Back to Calendar Button */
+.back-to-calendar-button {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-calendar-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Responsive Adjustments */
+
+/* For Small Screens (up to 480px) */
 @media (max-width: 480px) {
   .event-details-container {
-    max-width: 95%; /* Allow the container to use most of the screen width */
+    max-width: 95%; /* Utilize most of the screen width */
     padding: 15px;
   }
 
   .event-details-form {
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 10px;
   }
 }

@@ -1,5 +1,6 @@
 /* Calendar Container */
 .calendar-container {
+  /* Styling for the calendar's main container */
   margin: 150px auto;
   padding: 20px;
   max-width: 600px;
@@ -17,6 +18,7 @@
 
 /* Calendar Header */
 .calendar-header {
+  /* Header for navigation and displaying the current month */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,6 +27,7 @@
 }
 
 .calendar-header button {
+  /* Styling for header buttons */
   padding: 12px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -37,11 +40,13 @@
 }
 
 .calendar-header button:hover {
+  /* Hover effect for header buttons */
   background-color: #0056b3;
   transform: scale(1.05);
 }
 
 .month-name {
+  /* Styling for the displayed month name */
   font-size: 20px;
   font-weight: bold;
   color: #333333;
@@ -50,6 +55,7 @@
 
 /* React Calendar */
 .react-calendar {
+  /* Styling for the third-party React Calendar component */
   width: 100%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -58,6 +64,7 @@
 }
 
 .react-calendar__tile {
+  /* Styling for each date tile in the calendar */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,17 +79,20 @@
 }
 
 .react-calendar__tile:hover {
+  /* Hover effect for date tiles */
   background-color: #e6f7ff;
   transform: scale(1.05);
 }
 
 .react-calendar__tile--active {
+  /* Active date tile styling */
   background-color: #007bff;
   color: white;
   border: 2px solid #0056b3;
 }
 
 .react-calendar__navigation button {
+  /* Navigation buttons for the calendar */
   color: #007bff;
   font-size: 18px;
   font-weight: bold;
@@ -93,11 +103,13 @@
 }
 
 .react-calendar__navigation button:hover {
+  /* Hover effect for navigation buttons */
   color: #0056b3;
   transform: scale(1.1);
 }
 
 .event-dot {
+  /* Small dot indicating an event on a specific day */
   display: block;
   width: 8px;
   height: 8px;

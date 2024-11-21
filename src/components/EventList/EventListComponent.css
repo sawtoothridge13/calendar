@@ -1,19 +1,19 @@
-/* Event List */
+/* Event List Container */
 .event-list {
   margin-top: 20px;
 }
 
-/* Event Item */
+/* Individual Event Item */
 .event-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between event details and delete button */
   align-items: center;
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #ffffff;
   padding: 15px;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Adds hover effects */
 }
 
 .event-item:hover {
@@ -21,61 +21,63 @@
   transform: scale(1.02);
 }
 
-/* Event Details */
+/* Event Details Section */
 .event-details {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-right: 15px;
+  margin-right: 15px; /* Spacing between details and delete button */
 }
 
 .event-details p {
-  margin: 5px 0;
+  margin: 5px 0; /* Consistent spacing between detail lines */
   font-size: 16px;
-  color: #555;
+  color: #000000;
 }
 
 .event-details p strong {
-  color: #007bff;
+  color: #007bff; /* Highlighted text for labels */
 }
 
-/* Delete Button */
+/* No Events Message */
+.event-list p {
+  font-size: 18px;
+  color: #000;
+  text-align: left;
+}
+
+/* Delete Button Styling */
 .delete-button {
-  background-color: transparent;
+  background-color: transparent; /* No background */
   border: none;
-  color: #ff4d4f;
+  color: #ff4d4f; /* Red color for delete action */
   cursor: pointer;
   font-size: 18px;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
 .delete-button:hover {
-  color: #d9363e;
-  transform: scale(1.2);
+  color: #d9363e; /* Darker red on hover */
+  transform: scale(1.2); /* Slight enlargement on hover */
 }
 
-/* No Events Message */
-.event-list p {
-  font-size: 18px;
-  color: #999;
-  text-align: left;
-}
+/* Responsive Styles */
 
 /* Mobile (up to 480px) */
 @media (max-width: 480px) {
   .event-details p {
-    font-size: 14px;
+    font-size: 14px; /* Smaller text for small screens */
   }
 
   .delete-button {
-    font-size: 16px;
+    font-size: 16px; /* Slightly smaller delete icon */
   }
 }
 
 /* Tablet (481px to 1024px) */
 @media (max-width: 1024px) and (min-width: 481px) {
   .event-item {
-    padding: 10px;
+    padding: 10px; /* Less padding for medium screens */
   }
 
   .event-details p {

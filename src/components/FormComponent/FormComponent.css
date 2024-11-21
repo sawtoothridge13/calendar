@@ -1,30 +1,34 @@
+/* Form Container */
 .form-container {
-  width: 100%; /* Ensure the form scales with its parent */
+  width: 100%; /* Full width for responsiveness */
   max-width: 100%; /* Prevent overflow */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box; /* Include padding in width calculations */
   overflow: hidden; /* Prevent internal overflow */
 }
 
+/* Form Styling */
 form {
   display: flex;
-  flex-direction: column;
-  width: 100%; /* Ensure the form fields scale with the container */
+  flex-direction: column; /* Stack inputs vertically */
+  width: 100%; /* Match container width */
 }
 
+/* Input and Textarea Styling */
 input,
 textarea {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Spacing between fields */
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
-  box-sizing: border-box; /* Prevent fields from overflowing */
+  box-sizing: border-box; /* Ensure proper sizing */
 }
 
+/* Submit Button Styling */
 button {
   padding: 12px;
   font-size: 16px;
@@ -38,5 +42,12 @@ button {
 
 button:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-top: 10px;
 }

@@ -1,7 +1,14 @@
+/**
+ * FormComponent allows users to add a new event.
+ * Props:
+ * - handleAddEvent: Function to handle adding an event to the state and storage.
+ */
+
 import './FormComponent.css';
 import React, { useState } from 'react';
 
 const FormComponent = ({ handleAddEvent }) => {
+  // Form state for each field
   const [homeTeam, setHomeTeam] = useState('');
   const [awayTeam, setAwayTeam] = useState('');
   const [eventDescription, setEventDescription] = useState('');
@@ -10,8 +17,12 @@ const FormComponent = ({ handleAddEvent }) => {
   const [sport, setSport] = useState('');
   const [error, setError] = useState('');
 
+  /**
+   * Handles form submission and validates input fields.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validation
     if (
       homeTeam.trim() === '' ||
       awayTeam.trim() === '' ||
@@ -24,6 +35,7 @@ const FormComponent = ({ handleAddEvent }) => {
       return;
     }
 
+    // Construct event object
     const [year, month, day] = eventDate.split('-').map(Number);
     const [hours, minutes] = eventTime.split(':').map(Number);
     const eventDateTime = new Date(year, month - 1, day, hours, minutes);
@@ -36,6 +48,7 @@ const FormComponent = ({ handleAddEvent }) => {
       sport,
     };
 
+    // Call handler and reset form
     handleAddEvent(newEvent);
     setHomeTeam('');
     setAwayTeam('');
