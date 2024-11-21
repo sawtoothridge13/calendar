@@ -1,7 +1,3 @@
-Here’s the step-by-step to-do list formatted for inclusion in a `README.md` file for this React project:
-
----
-
 # Sportradar Coding Academy - Frontend Coding Exercise
 
 ## Overview
