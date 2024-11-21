@@ -1,10 +1,10 @@
-import './EventDetailsPage.css';
+import './AddEventPage.css';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 import EventListComponent from '../components/EventList/EventListComponent';
 import FormComponent from '../components/FormComponent/FormComponent';
 
-const EventDetailsPage = () => {
+const AddEventPage = () => {
   const location = useLocation();
   const navigate = useNavigate(); // Initialize navigate hook
   const preloadedEvents = location.state?.eventsForDate || [];
@@ -68,4 +68,4 @@ const EventDetailsPage = () => {
   );
 };
 
-export default EventDetailsPage;
+export default AddEventPage;

@@ -56,7 +56,7 @@ const ChallengeCalendar = () => {
       (event) => new Date(event.date).toDateString() === date.toDateString(),
     );
 
-    navigate('/EventDetailsPage', {
+    navigate('/AddEventPage', {
       state: { eventsForDate },
     });
   };

@@ -15,7 +15,7 @@ const NavBar = () => {
             <a href="/">Calendar View</a>
           </li>
           <li>
-            <a href="/EventDetailsPage">Event Details</a>
+            <a href="/AddEventPage">Add Event</a>
           </li>
         </ul>
       </div>
