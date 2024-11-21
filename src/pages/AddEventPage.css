@@ -15,9 +15,15 @@
 
 /* Form Section */
 .event-details-form {
-  width: 100%; /* Full width within the container */
-  margin-top: 20px; /* Spacing above the form */
-  padding: 15px;
+  .event-details-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Button to Toggle the Form */
