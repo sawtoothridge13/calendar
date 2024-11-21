@@ -78,3 +78,31 @@
   background-color: #0056b3;
   transform: scale(1.05);
 }
+/* Back to Calendar button */
+.back-to-calendar-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-calendar-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 480px) {
+  .back-to-calendar-button {
+    padding: 6px 12px; /* Reduce padding for mobile */
+    font-size: 12px; /* Smaller font size */
+  }
+}
