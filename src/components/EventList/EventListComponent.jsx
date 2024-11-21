@@ -1,6 +1,7 @@
 import './EventListComponent.css';
+import { FaTrash } from 'react-icons/fa'; // Import Font Awesome trash icon
 
-const EventListComponent = ({ events }) => {
+const EventListComponent = ({ events, handleDeleteEvent }) => {
   return (
     <div className="event-list">
       <h2>Events</h2>
@@ -32,6 +33,13 @@ const EventListComponent = ({ events }) => {
                 <p>
                   <strong>Description:</strong> {event.description}
                 </p>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDeleteEvent(index)}
+                  aria-label="Delete Event"
+                >
+                  <FaTrash />
+                </button>
               </li>
             );
           })}

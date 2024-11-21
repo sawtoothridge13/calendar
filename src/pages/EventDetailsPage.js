@@ -1,16 +1,16 @@
 import './EventDetailsPage.css';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useLocation } from 'react-router-dom';
 import EventListComponent from '../components/EventList/EventListComponent';
 import FormComponent from '../components/FormComponent/FormComponent';
 
 const EventDetailsPage = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // Initialize the navigate function
   const preloadedEvents = location.state?.eventsForDate || [];
   const [events, setEvents] = useState(preloadedEvents);
   const [showForm, setShowForm] = useState(false); // Toggle state for the form
 
+  // Function to handle adding a new event
   const handleAddEvent = (newEvent) => {
     const updatedEvents = [...events, newEvent];
     setEvents(updatedEvents);
@@ -21,17 +21,21 @@ const EventDetailsPage = () => {
     setShowForm(false); // Hide the form after adding the event
   };
 
+  // Function to handle deleting an event
   const handleDeleteEvent = (eventIndex) => {
+    // Remove the event from the local state
     const updatedEvents = events.filter((_, index) => index !== eventIndex);
     setEvents(updatedEvents);
-    // Optionally, update localStorage or parent state
+
+    // Update localStorage to persist changes
     const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
     const filteredStoredEvents = storedEvents.filter(
-      (event, index) => index !== eventIndex,
+      (_, index) => index !== eventIndex,
     );
     localStorage.setItem('events', JSON.stringify(filteredStoredEvents));
   };
 
+  // Load stored events and merge with preloaded events
   useEffect(() => {
     const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
     const mergedEvents = [...preloadedEvents, ...storedEvents];
@@ -42,6 +46,7 @@ const EventDetailsPage = () => {
     <div className="event-details-container">
       <h1>Event Details</h1>
 
+      {/* Button to toggle the add event form */}
       <button
         className="toggle-form-button"
         onClick={() => setShowForm(!showForm)}
@@ -49,25 +54,18 @@ const EventDetailsPage = () => {
         {showForm ? 'Hide Form' : 'Add Event'}
       </button>
 
+      {/* Show the add event form if toggle is active */}
       {showForm && (
         <div className="event-details-form">
           <FormComponent handleAddEvent={handleAddEvent} />
-          <EventListComponent
-            events={events}
-            handleDeleteEvent={handleDeleteEvent}
-          />
         </div>
       )}
 
-      {/* Back to Calendar Button */}
-      <button
-        className="back-to-calendar-button"
-        onClick={() => navigate('/')} // Navigate to homepage
-      >
-        Back to Calendar
-      </button>
-
-      <EventListComponent events={events} />
+      {/* Event List with delete functionality */}
+      <EventListComponent
+        events={events}
+        handleDeleteEvent={handleDeleteEvent} // Pass the delete function
+      />
     </div>
   );
 };
