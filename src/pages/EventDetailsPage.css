@@ -8,7 +8,7 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   overflow: hidden;
-  position: relative; /* Enable positioning for child elements */
+  position: relative; /* Ensure child elements are positioned relative to this */
 }
 
 .event-details-container h1 {
@@ -20,7 +20,7 @@
 
 /* Back to Calendar button */
 .back-to-calendar-button {
-  position: absolute; /* Position relative to the container */
+  position: absolute;
   top: 10px;
   left: 10px;
   padding: 10px 20px;
@@ -35,6 +35,46 @@
 }
 
 .back-to-calendar-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slight enlargement on hover */
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.event-details-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  max-width: 100%; /* Ensure the form doesn't exceed its parent width */
+  overflow: hidden; /* Prevent content from spilling out */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.form-container {
+  width: 100%; /* Take up full width of the parent */
+  max-width: 500px; /* Set a maximum width for the form */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Prevent padding from increasing width */
+}
+
+/* Toggle Button */
+.toggle-form-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-form-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
