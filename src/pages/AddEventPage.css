@@ -1,16 +1,16 @@
 /* Main Container for the Add Event Page */
 .event-details-container {
-  margin: 20px auto; /* Center with spacing */
+  margin: 20px auto;
   padding: 20px;
-  max-width: 600px; /* Limit container width */
+  max-width: 600px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-align: center; /* Center align content */
-  overflow: hidden; /* Prevent overflowing content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
   position: relative;
-  box-sizing: border-box; /* Include padding in width calculations */
+  box-sizing: border-box;
 }
 
 /* Form Section */
@@ -67,7 +67,7 @@
 /* For Small Screens (up to 480px) */
 @media (max-width: 480px) {
   .event-details-container {
-    max-width: 95%; /* Utilize most of the screen width */
+    max-width: 95%;
     padding: 15px;
   }
 

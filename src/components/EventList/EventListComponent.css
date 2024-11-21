@@ -61,23 +61,23 @@
   transform: scale(1.2); /* Slight enlargement on hover */
 }
 
-/* Responsive Styles */
+/* Responsive Media Queries */
 
 /* Mobile (up to 480px) */
 @media (max-width: 480px) {
   .event-details p {
-    font-size: 14px; /* Smaller text for small screens */
+    font-size: 14px;
   }
 
   .delete-button {
-    font-size: 16px; /* Slightly smaller delete icon */
+    font-size: 16px;
   }
 }
 
 /* Tablet (481px to 1024px) */
 @media (max-width: 1024px) and (min-width: 481px) {
   .event-item {
-    padding: 10px; /* Less padding for medium screens */
+    padding: 10px;
   }
 
   .event-details p {
