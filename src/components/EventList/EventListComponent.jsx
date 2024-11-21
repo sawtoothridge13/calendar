@@ -17,22 +17,24 @@ const EventListComponent = ({ events, handleDeleteEvent }) => {
             });
 
             return (
-              <li key={index}>
-                <p>
-                  <strong>Date:</strong> {formattedDate}
-                </p>
-                <p>
-                  <strong>Time:</strong> {formattedTime}
-                </p>
-                <p>
-                  <strong>Home Team:</strong> {event.homeTeam || 'TBD'}
-                </p>
-                <p>
-                  <strong>Away Team:</strong> {event.awayTeam || 'TBD'}
-                </p>
-                <p>
-                  <strong>Description:</strong> {event.description}
-                </p>
+              <div key={index} className="event-item">
+                <li className="event-details">
+                  <p>
+                    <strong>Date:</strong> {formattedDate}
+                  </p>
+                  <p>
+                    <strong>Time:</strong> {formattedTime}
+                  </p>
+                  <p>
+                    <strong>Home Team:</strong> {event.homeTeam || 'TBD'}
+                  </p>
+                  <p>
+                    <strong>Away Team:</strong> {event.awayTeam || 'TBD'}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {event.description}
+                  </p>
+                </li>
                 <button
                   className="delete-button"
                   onClick={() => handleDeleteEvent(index)}
@@ -40,7 +42,7 @@ const EventListComponent = ({ events, handleDeleteEvent }) => {
                 >
                   <FaTrash />
                 </button>
-              </li>
+              </div>
             );
           })}
         </ul>
