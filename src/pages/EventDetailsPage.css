@@ -1,153 +1,40 @@
-/* Main container for the Event Details Page */
 .event-details-container {
   margin: 20px auto;
   padding: 20px;
-  max-width: 600px; /* Matches calendar, form, and event list */
+  max-width: 600px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for consistency */
-  text-align: center; /* Center text alignment */
-  overflow: hidden; /* Prevent content overflow */
-  position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  position: relative; /* Enable positioning for child elements */
 }
-/* Header for the Event Details Page */
+
 .event-details-container h1 {
   margin-bottom: 20px;
-  font-size: 48px;
+  font-size: 32px;
   font-weight: bold;
-  color: #333; /* Matches labels in the form */
+  color: #333;
 }
 
-/* Event Details Section */
-.event-details {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for each detail */
-  text-align: left;
-}
-
-.event-details p {
-  margin: 8px 0;
-  font-size: 16px;
-  color: #555;
-}
-
-.event-details p strong {
-  color: #007bff; /* Highlight key details with primary color */
-}
-
-/* Form Section */
-.event-details-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  margin: 20px 0; /* Space around the form */
-  width: 100%;
-}
-
-/* Reuse form-container styles from FormComponent.css */
-.event-details-form .form-container {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px; /* Matches event details and calendar */
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Include padding and border in width calculation */
-  width: 100%;
-  max-width: 100%; /* Prevent form from exceeding container width */
-  width: 100%; /* Ensure responsive scaling */
-}
-
+/* Back to Calendar button */
 .back-to-calendar-button {
   position: absolute; /* Position relative to the container */
-  top: 20px; /* Distance from the top */
-  right: 20px; /* Distance from the right */
+  top: 10px;
+  left: 10px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
+  color: white;
   background-color: #007bff;
-  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 10; /* Ensure it's above other content */
 }
 
 .back-to-calendar-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-/* Mobile Styles */
-@media (max-width: 480px) {
-  .event-details-container {
-    max-width: 95%; /* Matches calendar width on mobile */
-    padding: 15px;
-  }
-
-  .event-details-container h1 {
-    font-size: 20px;
-  }
-
-  .event-details {
-    padding: 10px;
-  }
-
-  .event-details p {
-    font-size: 14px;
-  }
-
-  .event-details-form .form-container {
-    max-width: 95%; /* Matches container width on mobile */
-    padding: 15px;
-  }
-}
-
-/* Tablet Styles */
-@media (max-width: 768px) {
-  .event-details-container {
-    max-width: 90%; /* Matches tablet width of other components */
-    padding: 20px;
-  }
-
-  .event-details-container h1 {
-    font-size: 22px;
-  }
-
-  .event-details p {
-    font-size: 15px;
-  }
-
-  .event-details-form .form-container {
-    max-width: 600px; /* Matches calendar and event details */
-    padding: 20px;
-  }
-}
-
-/* Desktop Styles */
-@media (min-width: 1024px) {
-  .event-details-container {
-    max-width: 600px; /* Matches calendar and event list width */
-    padding: 30px;
-  }
-
-  .event-details-container h1 {
-    font-size: 24px;
-  }
-
-  .event-details p {
-    font-size: 16px;
-  }
-
-  .event-details-form .form-container {
-    max-width: 600px; /* Matches event details and calendar */
-    padding: 30px;
-  }
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight enlargement on hover */
 }
