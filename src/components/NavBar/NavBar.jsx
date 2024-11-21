@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="navbar-center">
         <ul className="nav-links">
           <li>
-            <a href="/">Home</a>
+            <a href="/">Calendar View</a>
           </li>
           <li>
             <a href="/EventDetailsPage">Event Details</a>

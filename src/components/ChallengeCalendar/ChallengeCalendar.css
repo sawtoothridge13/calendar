@@ -58,8 +58,12 @@
 }
 
 .react-calendar__tile {
-  padding: 20px;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column; /* Stacks date number and dot vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  padding: 15px; /* Consistent spacing across tiles */
+  font-size: 16px; /* Ensure uniform text size */
   color: black;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -80,12 +84,12 @@
 }
 
 .event-dot {
-  display: block;
-  width: 10px;
-  height: 10px;
+  display: block; /* Makes the dot appear as a separate element */
+  width: 8px; /* Size of the dot */
+  height: 8px;
   background-color: #00aeff;
-  border-radius: 50%;
-  margin: 5px auto 0 auto;
+  border-radius: 50%; /* Makes the dot circular */
+  margin-top: 5px; /* Adds space between the date number and the dot */
 }
 
 /* Mobile Styles */
