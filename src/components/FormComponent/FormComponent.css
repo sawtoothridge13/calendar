@@ -55,14 +55,52 @@ button:hover {
   font-size: 14px;
 }
 
-/* Responsive Media Queries */
+/* Mobile (up to 480px) */
 @media (max-width: 480px) {
   input,
   textarea {
     font-size: 14px;
+    padding: 10px;
   }
 
   button {
     font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Tablet (481px to 1024px) */
+@media (max-width: 1024px) and (min-width: 481px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  input,
+  textarea {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media (min-width: 1025px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  input,
+  textarea {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 15px;
   }
 }

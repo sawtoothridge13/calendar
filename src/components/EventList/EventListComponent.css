@@ -61,7 +61,7 @@
   text-align: left;
 }
 
-/* Responsive Media Queries */
+/* Mobile (up to 480px) */
 @media (max-width: 480px) {
   .event-details p {
     font-size: 14px;
@@ -69,5 +69,35 @@
 
   .delete-button {
     font-size: 16px;
+  }
+}
+
+/* Tablet (481px to 1024px) */
+@media (max-width: 1024px) and (min-width: 481px) {
+  .event-item {
+    padding: 10px;
+  }
+
+  .event-details p {
+    font-size: 15px;
+  }
+
+  .delete-button {
+    font-size: 18px;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media (min-width: 1025px) {
+  .event-item {
+    padding: 15px;
+  }
+
+  .event-details p {
+    font-size: 16px;
+  }
+
+  .delete-button {
+    font-size: 20px;
   }
 }
